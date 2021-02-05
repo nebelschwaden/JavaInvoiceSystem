@@ -163,3 +163,14 @@ ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+             
+BEGIN;
+			--Default username and password
+INSERT INTO Persona VALUES (0,'cliente','cliente','John','Doe','Carlson','1700000000','','2676998','john@gmail.com','234234234');
+INSERT INTO Cliente VALUES ( 0,last_insert_id());
+COMMIT;
+BEGIN;
+			--Default username and password
+INSERT INTO Persona VALUES (0,'administrador','administrador','Doe','John','','','AAAABBB00000','2676998','doe@gmail.com','');
+INSERT INTO Administrador VALUES ( 0,last_insert_id());
+COMMIT;
