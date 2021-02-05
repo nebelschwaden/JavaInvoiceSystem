@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="14edf90a-7bb4-485f-8bd5-dc04336b225c">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="idEventosub" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[ select LOCALIDAD.tipo, count(idboleto), count(idboleto)*LOCALIDAD.precio from EVENTOS, LOCALIDAD, ASIENTOS, BOLETO where EVENTOS.ideventos=$P{idEventosub} and LOCALIDAD.eventos_ideventos=EVENTOS.ideventos and LOCALIDAD.tipo='Tribuna' and LOCALIDAD.idlocalidad=ASIENTOS.localidad_idlocalidad and BOLETO.asientos_idasientos=ASIENTOS.idasientos;]]>
+	</queryString>
+	<field name="tipo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="count(idboleto)" class="java.lang.Long"/>
+	<field name="count(idboleto)*LOCALIDAD.precio" class="java.lang.Double"/>
+	<title>
+		<band height="79" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="28" width="100" height="20" uuid="a712f8ba-039d-46ee-a287-65500338e2b2"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tipo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="145" y="28" width="100" height="20" uuid="75d583c9-070f-4200-bc96-248e323b9347"/>
+				<textElement>
+					<font isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{count(idboleto)}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="288" y="28" width="100" height="20" uuid="a3d80491-0fc3-470b-b6db-2f93e9e8faf6"/>
+				<textElement>
+					<font isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{count(idboleto)*LOCALIDAD.precio}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+</jasperReport>

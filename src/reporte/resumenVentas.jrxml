@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="21af1ca8-842e-4b34-886e-03c64a2266b1">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="pidEvento" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Users\\PC\\Documents\\Programación II\\Proyecto\\VistasProyecto1\\build\\classes\\reporte\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select * from eventos where idEventos=$P{pidEvento}]]>
+	</queryString>
+	<field name="idEventos" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="lugar" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="equipo1" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="equipo2" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fecha" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="hora" class="java.sql.Time">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="126" y="15" width="341" height="46" uuid="cce1a8da-645b-4281-bc0a-99b226a358df"/>
+				<textElement textAlignment="Center">
+					<font size="28" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[RESUMEN DE VENTAS]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="73" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="79" height="35" uuid="7ae600bb-0511-4500-a151-0dfc78fee076"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Lugar:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="35" width="79" height="36" uuid="835bf10b-df1d-4929-85cf-600d81b419c9"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="79" y="0" width="100" height="35" uuid="b2f9eadb-8ec2-4145-873b-8bef8676f618"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{lugar}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="79" y="35" width="100" height="36" uuid="af0e75f1-837e-4cf7-a774-8f581322d679"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="179" y="0" width="79" height="35" uuid="7924342d-ad92-4595-bc07-4f28f574a617"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Equipos:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="258" y="0" width="100" height="35" uuid="f223d2bf-0fc0-41d8-837d-47672cb02fe8"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{equipo1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="358" y="0" width="97" height="35" uuid="bc597a19-961f-4c8e-9d36-522476f63772"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{equipo2}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="16" y="17" width="110" height="20" uuid="067e2f76-a7d9-4a88-80fa-dcfee3e73f48"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Localidad:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="145" y="17" width="113" height="20" uuid="b874763a-9847-4032-993f-d28bd59773f5"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Boletos Vendidos:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="312" y="17" width="100" height="20" uuid="c86e1dc9-a966-40c3-be1c-6992e419ac71"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Dinero obtenido:]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="271" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="0" width="555" height="69" uuid="32c502a7-9f7b-47d8-8375-9c1361234b4f"/>
+				<subreportParameter name="subidEventos">
+					<subreportParameterExpression><![CDATA[$F{idEventos}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "reporteGeneralN.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="0" y="69" width="555" height="70" uuid="92bd6faf-8fcf-48b1-b4d5-da35a7b9d849"/>
+				<subreportParameter name="subidEventos">
+					<subreportParameterExpression><![CDATA[$F{idEventos}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "reporteGeneralS.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="0" y="202" width="555" height="69" uuid="90674c91-1a9d-4c04-a655-1dc86b0454d7"/>
+				<subreportParameter name="idEventosub">
+					<subreportParameterExpression><![CDATA[$F{idEventos}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "reporteTribuna.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="0" y="139" width="555" height="63" uuid="05c6ef6d-d7d5-4caf-9e3a-a374a25747f2"/>
+				<subreportParameter name="subidEventos">
+					<subreportParameterExpression><![CDATA[$F{idEventos}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "reportePalc.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+</jasperReport>
