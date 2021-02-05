@@ -13,7 +13,7 @@ Before you begin, ensure you have met the following requirements:
 * You have installed Java 8.
 * You have a MySQL instance running with the given database.
 
-## Using <project_name>
+## Using Java Invoice System
 
 To use the Java Invoice system, you can open the project in your favourite IDE and run the main class. 
 Consider that this project uses the libraries jCalendar, JasperReport and the Java MySQL driver which are included in the project so make sure you have those integrated in your project.
